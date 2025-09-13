@@ -4,11 +4,12 @@ FROM n8nio/n8n:latest
 USER root
 
 # Install dependencies using apt-get for Debian-based images
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apk add --no-cache \
     bash \
     curl \
     bc \
     ffmpeg \
+    ffmpeg-dev \
     fontconfig \
     # Clean up package lists to keep the image size small
     && rm -rf /var/lib/apt/lists/*
